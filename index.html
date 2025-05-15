@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AdmitRoute | Smarter Admissions</title>
+  <link rel="stylesheet" href="style.css" />
+  <header>
+    <div class="logo">🎓 AdmitRoute</div>
+    
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+/* 
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      background: #0f2027;
+      overflow-x: hidden;
+    } */
+
+    /* Animated Gradient Background */
+     /* .animated-bg {  
+      background: linear-gradient(-45deg, #1e3c72, #2a5298, #0f2027, #1e3c72);
+      background-size: 400% 400%;
+      animation: gradientShift 12s ease infinite;
+    } */
+
+    /* @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    } */
+
+    section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      color: #ddd;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .cta-buttons button {
+      padding: 14px 22px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: transform 0.3s ease;
+    }
+
+    .btn-primary {
+      background-color: #fff;
+      color: #1e3c72;
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      border: 2px solid #fff;
+      color: #fff;
+    }
+
+    .cta-buttons button:hover {
+      transform: translateY(-4px);
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      width: 300px;
+      padding: 25px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+      animation: fadeUp 1.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #eee;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .footer {
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      font-size: 14px;
+      background: linear-gradient(-45deg, #233c69, #2a5298, #1a2a6c);
+      background-size: 400% 400%;
+      animation: gradientShift 10s ease infinite;
+    }
+   
+    .footer-item {
+      white-space: nowrap;
+    }
+
+    .language {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.8rem; }
+      .cta-buttons { flex-direction: column; gap: 10px; }
+    }
+
+    /* Floating decorative bubbles */
+    .bubbles {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .bubbles li {
+      position: absolute;
+      display: block;
+      list-style: none;
+      width: 20px;
+      height: 20px;
+      background: rgba(255,255,255,0.15);
+      bottom: -120px;
+      animation: rise 20s linear infinite;
+      border-radius: 50%;
+    }
+
+    .bubbles li:nth-child(1) { left: 10%; width: 20px; height: 20px; animation-duration: 15s; }
+    .bubbles li:nth-child(2) { left: 20%; width: 25px; height: 25px; animation-duration: 18s; }
+    .bubbles li:nth-child(3) { left: 35%; width: 15px; height: 15px; animation-duration: 12s; }
+    .bubbles li:nth-child(4) { left: 50%; width: 30px; height: 30px; animation-duration: 20s; }
+    .bubbles li:nth-child(5) { left: 65%; width: 18px; height: 18px; animation-duration: 14s; }
+    .bubbles li:nth-child(6) { left: 80%; width: 22px; height: 22px; animation-duration: 16s; }
+
+    @keyframes rise {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-1000px); opacity: 0; }
+    }
+  </style>
+</head>
+
+
+<body class="animated-bg">
+  <!-- Bubbles for background animation -->
+  <ul class="bubbles">
+    <li></li><li></li><li></li><li></li><li></li><li></li>
+  </ul>
+  
+
+  <section class="hero">
+  <div class="carousel-container">
+    <div class="carousel-slide fade">
+      <img src="assets/img/image1.jpg" alt="Slide 1">
+      <div class="caption">
+        <h1>🎯 Your Direct Path to the Right College – Fast, Informed, and Personalized.</h1>
+        <div class="cta-buttons">
+          <button class="btn-primary" onclick="window.location.href='apply.html'">🚀 Apply in 5 Minutes</button>
+          <button class="btn-secondary" onclick="window.location.href='chatbot.html'">💬 Chat with Counselor Now</button>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-slide fade">
+      <img src="assets/img/image2.jpg" alt="Slide 2">
+      <div class="caption">
+        <h1>🎯 Your Direct Path to the Right College – Fast, Informed, and Personalized.</h1>
+        <div class="cta-buttons">
+          <button class="btn-primary" onclick="window.location.href='apply.html'">🚀 Apply in 5 Minutes</button>
+          <button class="btn-secondary" onclick="window.location.href='chatbot.html'">💬 Chat with Counselor Now</button>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-slide fade">
+      <img src="assets/img/image3.jpg" alt="Slide 3">
+      <div class="caption">
+        <h1>🎯 Your Direct Path to the Right College – Fast, Informed, and Personalized.</h1>
+        <div class="cta-buttons">
+          <button class="btn-primary" onclick="window.location.href='apply.html'">🚀 Apply in 5 Minutes</button>
+          <button class="btn-secondary" onclick="window.location.href='chatbot.html'">💬 Chat with Counselor Now</button>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-slide fade">
+      <img src="assets/img/image4.jpg" alt="Slide 4">
+      <div class="caption">
+        <h1>🎯 Your Direct Path to the Right College – Fast, Informed, and Personalized.</h1>
+        <div class="cta-buttons">
+          <button class="btn-primary" onclick="window.location.href='apply.html'">🚀 Apply in 5 Minutes</button>
+          <button class="btn-secondary" onclick="window.location.href='chatbot.html'">💬 Chat with Counselor Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation buttons -->
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+
+    <!-- Dots -->
+    <div class="dots">
+      <span class="dot" data-slide="0"></span>
+      <span class="dot" data-slide="1"></span>
+      <span class="dot" data-slide="2"></span>
+    </div>
+  </div>
+</section>
+
+ 
+  <!-- Who We Help -->
+  <section>
+    <div class="section-title">🌟 Who We Help</div>
+    <div class="cards">
+      <div class="card">
+        <h3>🎓 For Students</h3>
+        <p>Transform your college search into admission. Get curated programs, eligibility checks, and WhatsApp guidance every step of the way.</p>
+      </div>
+      <div class="card">
+        <h3>👨‍👩‍👧 For Parents</h3>
+        <p>Track your child’s journey. Get scholarship insights, real-time updates, and payment reminders directly to your phone.</p>
+      </div>
+      <div class="card">
+        <h3>🏫 For Institutions</h3>
+        <p>Join our ecosystem to reach high-intent prospects via a data-driven, trusted admissions gateway.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why AdmitRoute -->
+  <section>
+    <div class="section-title">🚀 Why AdmitRoute</div>
+    <div class="cards">
+      <div class="card"><h3>⚡ Instant Readiness</h3><p>Forms pre-filled from your existing CollegeRadar data.</p></div>
+      <div class="card"><h3>📱 Mobile-First</h3><p>Apply from your smartphone with zero hassle.</p></div>
+      <div class="card"><h3>🤖 Smart Eligibility</h3><p>See only programs you qualify for. Save time and effort.</p></div>
+      <div class="card"><h3>🔄 Ecosystem Sync</h3><p>Auto-integrated with SeekMyCollege & CompareMyCollege.</p></div>
+      <div class="card"><h3>📊 Real-Time Tracking</h3><p>Know where your application stands, instantly.</p></div>
+      <div class="card"><h3>🔔 WhatsApp Nudges</h3><p>Never miss deadlines or counselor alerts.</p></div>
+      <div class="card"><h3>📈 Admission Funnel</h3><p>Track your journey from lead to admit with insights.</p></div>
+      <div class="card"><h3>🔒 Privacy First</h3><p>GDPR-grade data security with token-based SSO.</p></div>
+    </div>
+  </section>
+
+<!-- Deadline Alarm Section -->
+<section class="deadline-section">
+  <h2 class="deadline-title">⏰ Don't Miss Your Window of Opportunity</h2>
+  <p class="deadline-subtext">🚨 Apply before these program deadlines close. Time is ticking!</p>
+  <div class="calendar-box">
+    <!-- Calendar Visual -->
+    <div class="calendar-deadlines">
+      <div class="deadline-item">
+        <div class="alarm-icon">🔔</div>
+        <div>
+          <strong>MSc Data Science</strong><br>
+          Jain University – <span class="days-left red-blink">3 days left</span>
+        </div>
+      </div>
+      <div class="deadline-item">
+        <div class="alarm-icon">🔔</div>
+        <div>
+          <strong>BBA International Business</strong><br>
+          SVYASA – <span class="days-left yellow-blink">5 days left</span>
+        </div>
+      </div>
+      <div class="deadline-item">
+        <div class="alarm-icon">🔔</div>
+        <div>
+          <strong>MCA Program</strong><br>
+          Christ University – <span class="days-left green-blink">6 days left</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Deadline Section */
+.deadline-section {
+  background: #1a1f2f;
+  padding: 60px 20px;
+  text-align: center;
+  position: relative;
+  color: #fff;
+  z-index: 2;
+}
+
+.deadline-title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  animation: pulseGlow 2s infinite;
+}
+
+.deadline-subtext {
+  font-size: 1.1rem;
+  color: #ccc;
+  margin-bottom: 30px;
+}
+
+.calendar-box {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.calendar-deadlines {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 100%;
+}
+
+.deadline-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 1rem;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  animation: slideIn 0.8s ease forwards;
+}
+
+.alarm-icon {
+  font-size: 2rem;
+  animation: blinkAlarm 1s infinite;
+}
+
+.days-left {
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 5px;
+}
+
+.red-blink {
+  background: #ff4b5c;
+  animation: blinkRed 1s infinite;
+}
+
+.yellow-blink {
+  background: #fcbf49;
+  animation: blinkYellow 1.5s infinite;
+}
+
+.green-blink {
+  background: #4cd137;
+  animation: blinkGreen 2s infinite;
+}
+
+/* Animations */
+@keyframes blinkAlarm {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+@keyframes blinkRed {
+  0%, 100% { background-color: #ff4b5c; }
+  50% { background-color: #ff6e7f; }
+}
+
+@keyframes blinkYellow {
+  0%, 100% { background-color: #fcbf49; }
+  50% { background-color: #ffda77; }
+}
+
+@keyframes blinkGreen {
+  0%, 100% { background-color: #4cd137; }
+  50% { background-color: #78e08f; }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0% { text-shadow: 0 0 10px #ff4b5c; }
+  50% { text-shadow: 0 0 20px #ff4b5c, 0 0 30px #ff6e7f; }
+  100% { text-shadow: 0 0 10px #ff4b5c; }
+}
+
+@media (max-width: 600px) {
+  .deadline-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+</style>
+
+ 
+ 
+<!-- Ecosystem Advantage Section -->
+<section class="ecosystem-section">
+  <h2 class="eco-title">🌐 The Ecosystem Advantage</h2>
+  <p class="eco-subtitle">AdmitRoute activates your data from across the <span>CollegeRadar</span> ecosystem:</p>
+
+  <div class="eco-cards">
+    <!-- Card 1 -->
+    <div class="eco-card card-blue">
+      <div class="eco-icon">🔁</div>
+      <h3>CompareMyCollege</h3>
+      <p>Your shortlisted programs appear automatically</p>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="eco-card card-green">
+      <div class="eco-icon">🌱</div>
+      <h3>SeekMyCollege</h3>
+      <p>Your interests and browsing history influence recommendations</p>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="eco-card card-purple">
+      <div class="eco-icon">📊</div>
+      <h3>CollegeRadar</h3>
+      <p>Your profile, preferences, and documents are pre-loaded</p>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Ecosystem Section */
+.ecosystem-section {
+  background: linear-gradient(to right, #111827, #1f2937);
+  color: white;
+  padding: 70px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.eco-title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  animation: glowText 2s infinite ease-in-out;
+}
+
+.eco-subtitle {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 50px;
+}
+.eco-subtitle span {
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+/* Cards Container */
+.eco-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+/* Card Styles */
+.eco-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 15px;
+  padding: 30px 20px;
+  width: 280px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+}
+
+.eco-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 0 25px rgba(0, 255, 200, 0.3);
+}
+
+/* Icon */
+.eco-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  animation: pulseIcon 2s infinite ease-in-out;
+}
+
+/* Card Colors */
+.card-blue { border-left: 5px solid #38bdf8; }
+.card-green { border-left: 5px solid #34d399; }
+.card-purple { border-left: 5px solid #a78bfa; }
+
+/* Animations */
+@keyframes pulseIcon {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+@keyframes glowText {
+  0%, 100% { text-shadow: 0 0 10px #38bdf8; }
+  50% { text-shadow: 0 0 20px #38bdf8, 0 0 30px #38bdf8; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .eco-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+</style> 
+
+  <section class="trust-section">
+    <div class="container">
+      <h2 class="section-title">Trust & Security</h2>
+      <p class="section-subtitle">Your data is safe. Your journey is secure. Your future is bright.</p>
+      <div class="cards">
+        <div class="card" data-animate>
+          <div class="icon">🔒</div>
+          <h3>Data Protection</h3>
+          <p>Enterprise-grade security with GDPR compliance.</p>
+        </div>
+        <div class="card" data-animate>
+          <div class="icon">✅</div>
+          <h3>Verified Partnerships</h3>
+          <p>Direct integration with official admission systems.</p>
+        </div>
+        <div class="card" data-animate>
+          <div class="icon">🌟</div>
+          <h3>Student Satisfaction</h3>
+          <p>4.8/5 rating based on 1,200+ successful applications.</p>
+        </div>
+        <div class="card" data-animate>
+          <div class="icon">🏆</div>
+          <h3>92% Admission Rate</h3>
+          <p>For students using our guided application process.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+   <section class="testimonial-section">
+    <h2>Success Stories</h2>
+    <div class="carousel">
+      <button class="nav prev">&#10094;</button>
+      <div class="testimonial active">
+        <p class="quote">“AdmitRoute turned my application anxiety into confidence. The WhatsApp guidance made every step clear, and I completed everything from my phone while commuting!”</p>
+        <div class="author">— Nisha R., Bangalore</div>
+        <div class="meta">(Admitted to SVYASA University)</div>
+      </div>
+      <div class="testimonial">
+        <p class="quote">“I was ready to give up after comparing so many colleges. AdmitRoute made the final step so simple that I applied to 3 programs in one evening.”</p>
+        <div class="author">— Rohit K., Pune</div>
+        <div class="meta">(Admitted with scholarship to Jain University)</div>
+      </div>
+      <div class="testimonial">
+        <p class="quote">“As a working professional, I couldn't take time off to visit campuses. AdmitRoute's mobile experience let me complete my MBA application during lunch breaks.”</p>
+        <div class="author">— Priya M., Hyderabad</div>
+        <div class="meta">(Part-time MBA student)</div>
+      </div>
+      <button class="nav next">&#10095;</button>
+    </div>
+  </section>
+  
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-item">🔗 About CollegeRadar Ecosystem</div>
+    <div class="footer-item">🔒 Privacy & Data Policy</div>
+    <div class="footer-item">🛠 Help Center</div>
+    <div class="footer-item">📞 Contact Us</div>
+    <div class="footer-item">💼 For Institutions</div>
+    <div class="footer-item language">🌍 Language: <span>English [EN]</span> | <span>हिन्दी [HI]</span></div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
+
+ 
